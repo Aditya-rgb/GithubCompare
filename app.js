@@ -6,8 +6,8 @@ const request = require("request");
 const Buffer = require('buffer/').Buffer
 const utf8 = require('utf8');
 
-app.listen(3000 , function(){
-  console.log("Server started at port 3000");
+app.listen(process.env.PORT || 3000, function(){
+  console.log("Server is running on port 3000");
 });
 
 app.use(express.static("public"));
@@ -45,12 +45,13 @@ app.post("/" , function(req , res){
                   const house = schema.public_repos;
                   const india = schema.public_gists;
                   const joker = schema.twitter_username;
+                  const kilo = schema.html_url;
                   /*
                   res.write("<h1>The Login name is " + temp + "</h1>" );
                   res.write("<h1>ID  is " + bravo + "</h1");
                   res.send();
                   */
-                  res.render("list" , {login:alpha , id:bravo , url:charlie , name:delta , public_gists:elephant , following:faug , followers:gre , public_repos:house , public_gists:india , twitter_username:joker});
+                  res.render("list" , {login:alpha , id:bravo , url:charlie , name:delta , public_gists:elephant , following:faug , followers:gre , public_repos:house , public_gists:india , twitter_username:joker , html_url:kilo});
       });
 
       });
